@@ -1,10 +1,10 @@
-module Char.CodePoint exposing (fromChar, toString, listToString)
+module Char.CodePoint exposing (CodePoint, fromChar, toString, listToString)
 
 
 {-| Code point operations.
 
 
-@docs fromChar, toString, listToString
+@docs CodePoint, fromChar, toString, listToString
 -}
 
 
