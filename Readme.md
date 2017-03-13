@@ -18,7 +18,7 @@ Char.fromCode 55349 == '�'
 
 
 Char.CodePoint.fromChar '𝔸' == 120120
-Char.CodePoint.toString 120120 == '𝔸'
+Char.CodePoint.toString 120120 == "𝔸"
 ```
 
 You can try different chars and see the result on this [ellie](https://ellie-app.com/D9KnCL3YSLa1/0).
