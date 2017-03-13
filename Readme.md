@@ -1,6 +1,6 @@
 # Code Point
 
-Convert char to code point and code point to string, similar to javascript's `String.codePointAt` and `String.fromCodePoint`.
+Convert char to code point and code point to string, similar to javascript's `String.codePointAt` and `String.fromCodePoint`. [Demo](https://pablohirafuji.github.io/elm-char-codepoint/).
 
 ## What's the difference between `Char.toCode` and `Char.CodePoint.fromChar`?
 
@@ -21,4 +21,4 @@ Char.CodePoint.fromChar '𝔸' == 120120
 Char.CodePoint.toString 120120 == "𝔸"
 ```
 
-You can try different chars and see the result on this [ellie](https://ellie-app.com/D9KnCL3YSLa1/0).
+You can try different chars in this [demo](https://pablohirafuji.github.io/elm-char-codepoint/).
