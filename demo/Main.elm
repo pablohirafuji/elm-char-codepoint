@@ -1,7 +1,5 @@
-module Index exposing (main)
-
-import Html exposing (Html, div, text, button, ul, li, input)
-import Html.Attributes exposing (type_)
+import Html exposing (Html, div, text, button, ul, li, input, table, tr, td)
+import Html.Attributes exposing (type_, class)
 import Html.Events exposing (onClick, onInput)
 import Char
 import Char.CodePoint as CodePoint
@@ -34,8 +32,10 @@ update msg model =
 view : Model -> Html Msg
 view model =
     div []
-        [ inputView
-        , buttonsView
+        [ div [ class "form" ]
+            [ inputView
+            , buttonsView
+            ]
         , outputView model.char
         ]
 
@@ -71,39 +71,41 @@ badChars =
 
 outputView : Char -> Html Msg
 outputView char =
-    ul []
-        [ li []
-            [ String.fromChar char
-                |> (++) "Char: "
-                |> text
+    table []
+        [ tr []
+            [ td [] [ text (String.fromChar char) ]
+            , td [] [ text "Char" ]
             ]
-        , li []
-            [ Char.toCode char
-                |> toString
-                |> (++) "Char.toCode: "
-                |> text
+        , tr []
+            [ td [] [ text (Char.toCode char |> toString) ]
+            , td [] [ text "Char.toCode" ]
             ]
-        , li []
-            [ Char.toCode char
-                |> Char.fromCode
-                |> String.fromChar
-                |> (++) "Char.fromCode: "
-                |> text
+        , tr []
+            [ td []
+                [ Char.toCode char
+                    |> Char.fromCode
+                    |> String.fromChar
+                    |> text
+                ]
+            , td [] [ text "Char.fromCode" ]
             ]
-        , li []
-            [ CodePoint.fromChar char
-                |> toString
-                |> (++) "CodePoint.fromChar: "
-                |> text
+        , tr []
+            [ td []
+                [ CodePoint.fromChar char
+                    |> toString
+                    |> text
+                ]
+            , td [] [ text "CodePoint.fromChar" ]
             ]
-        , li []
-            [ CodePoint.fromChar char
-                |> CodePoint.toString
-                |> (++) "CodePoint.toString: "
-                |> text
+        , tr []
+            [ td []
+                [ CodePoint.fromChar char
+                    |> CodePoint.toString
+                    |> text
+                ]
+            , td [] [ text "CodePoint.toString" ]
             ]
         ]
-
 
 
 main : Program Never Model Msg
